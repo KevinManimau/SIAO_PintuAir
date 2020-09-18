@@ -1,6 +1,6 @@
 <?php
 
-define('BASEURL', 'http://localhost/SIAO/public/');
+define('BASEURL', 'https://hidden-fjord-75780.herokuapp.com/public/');
 
 //DB
 define('DB_HOST','localhost');

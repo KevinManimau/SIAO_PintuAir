@@ -8,7 +8,7 @@ $(document).ready(function() {
         const image = $('#image').val();
         // alert(image);
         $.ajax({
-            url:"http://localhost/SIAO/public/ajaxupload.php",
+            url:"https://hidden-fjord-75780.herokuapp.com/public/ajaxupload.php",
             data: {image: image},
             method:"post",
             beforeSend:function()
@@ -41,7 +41,7 @@ $(document).ready(function() {
     $('.tampilModalTambahCabang').click(function(){
         $('#DataModelsCabang #forModalLabel').html("Tambah Data Cabang");
         $('#DataModelsCabang .action').html("<i class='fa fa-plus'></i> ADD");
-        $('#DataModelsCabang .modal-body form').attr('action','http://localhost/SIAO/public/Cabang/tambah')
+        $('#DataModelsCabang .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Cabang/tambah')
 
         $('#DataModelsCabang #nrp').val('');
         $('#DataModelsCabang #nama').val('');
@@ -51,12 +51,12 @@ $(document).ready(function() {
     $('.tampilModalEditCabang').click(function(){
         $('#DataModelsCabang #forModalLabel').html("Ubah Data Cabang");
         $('#DataModelsCabang .action').html("<i class='fa fa-edit'></i> EDIT");
-        $('#DataModelsCabang .modal-body form').attr('action','http://localhost/SIAO/public/Cabang/ubah')
+        $('#DataModelsCabang .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Cabang/ubah')
 
         const id = $(this).data('id');
         // alert(id);
         $.ajax({
-            url: 'http://localhost/SIAO/public/Cabang/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Cabang/getUbah',
             data: {id: id},
             method: 'post',
             dataType: 'json',
@@ -88,7 +88,7 @@ $(document).ready(function() {
     $('.tampilModalTambahManager').click(function(){
         $('#DataModelsManager #forModalLabel').html("Tambah Data Manager");
         $('#DataModelsManager .action').html("<i class='fa fa-plus'></i> ADD");
-        $('#DataModelsManager .modal-body form').attr('action','http://localhost/SIAO/public/Manager/tambah')
+        $('#DataModelsManager .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Manager/tambah')
 
         $('#DataModelsManager #nopintar').val('');
         $('#DataModelsManager #nama').val('');
@@ -103,12 +103,12 @@ $(document).ready(function() {
     $('.tampilModalEditManager').click(function(){
         $('#DataModelsManager #forModalLabel').html("Ubah Data Manager");
         $('#DataModelsManager .action').html("<i class='fa fa-edit'></i> EDIT");
-        $('#DataModelsManager .modal-body form').attr('action','http://localhost/SIAO/public/Manager/ubah')
+        $('#DataModelsManager .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Manager/ubah')
         // $('#cabang option');
         const idman = $(this).data('id');
         
         $.ajax({
-            url: 'http://localhost/SIAO/public/Manager/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Manager/getUbah',
             data: {id: idman},
             method: 'post',
             dataType: 'json',
@@ -143,7 +143,7 @@ $(document).ready(function() {
     $('.tampilModalTambahUser').click(function(){
         $('#DataModelsUser #forModalLabel').html("Tambah Data User");
         $('#DataModelsUser .action').html("<i class='fa fa-plus'></i> ADD");
-        $('#DataModelsUser .modal-body form').attr('action','http://localhost/SIAO/public/User/tambah')
+        $('#DataModelsUser .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/User/tambah')
 
         $('#DataModelsUser #username').val('');
         $('#DataModelsUser #password').val('');
@@ -151,12 +151,12 @@ $(document).ready(function() {
     $('.tampilModalEditUser').click(function(){
         $('#DataModelsUser #forModalLabel').html("Ubah Data User");
         $('#DataModelsUser .action').html("<i class='fa fa-edit'></i> EDIT");
-        $('#DataModelsUser .modal-body form').attr('action','http://localhost/SIAO/public/User/ubah')
+        $('#DataModelsUser .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/User/ubah')
         // $('#cabang option');
         const idman = $(this).data('id');
         
         $.ajax({
-            url: 'http://localhost/SIAO/public/User/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/User/getUbah',
             data: {id: idman},
             method: 'post',
             dataType: 'json',
@@ -193,18 +193,18 @@ $(document).ready(function() {
     $('.tampilModalTambahAnggota').click(function(){
         $('#DataModalAnggota #forModalLabel').html("Tambah Data Anggota");
         $('#DataModalAnggota .action').html("<i class='fa fa-plus'></i> ADD");
-        $('#DataModalAnggota .modal-body form').attr('action','http://localhost/SIAO/public/Anggota/tambah')
+        $('#DataModalAnggota .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Anggota/tambah')
 
     })
     $('.tampilModalEditAnggota').click(function(){
 
         $('#DataModalAnggota #forModalLabel').html("Ubah Data Anggota");
         $('#DataModalAnggota .action').html("<i class='fa fa-edit'></i> EDIT");
-        $('#DataModalAnggota .modal-body form').attr('action','http://localhost/SIAO/public/Anggota/ubah')
+        $('#DataModalAnggota .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Anggota/ubah')
         const idagt = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/SIAO/public/Anggota/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Anggota/getUbah',
             data: {idagt: idagt},
             method: 'post',
             dataType: 'json',
@@ -242,7 +242,7 @@ $(document).ready(function() {
         const idcbg = $(this).data('id');
 
         $.ajax({
-            url: 'http://localhost/SIAO/public/Wilayah/getWilayah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Wilayah/getWilayah',
             data: {idcbg: idcbg},
             method: 'post',
             dataType: 'json',
@@ -266,7 +266,7 @@ $(document).ready(function() {
     $('.tampilModalTambahWilayah').click(function(){
         $('#DataModalWilayah #forModalLabel').html("Tambah Data Wilayah");
         $('#DataModalWilayah .action').html("<i class='fa fa-edit'></i> Add");
-        $('#DataModalWilayah .modal-body form').attr('action','http://localhost/SIAO/public/Wilayah/tambah');
+        $('#DataModalWilayah .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Wilayah/tambah');
 
         $('#DataModalWilayah #wilayah').val('');
         $('#DataModalWilayah #choose').val('');
@@ -276,12 +276,12 @@ $(document).ready(function() {
     $('.tampilModalEditWilayah').click(function(){
         $('#DataModalWilayah #forModalLabel').html("Ubah Data Wilayah");
         $('#DataModalWilayah .action').html("<i class='fa fa-edit'></i> Edit");
-        $('#DataModalWilayah .modal-body form').attr('action','http://localhost/SIAO/public/Wilayah/ubah');
+        $('#DataModalWilayah .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Wilayah/ubah');
 
         const idwil = $(this).data('id');
         // console.log(idwil);
         $.ajax({
-            url: 'http://localhost/SIAO/public/Wilayah/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Wilayah/getUbah',
             data: {id: idwil},
             method: 'post',
             dataType: 'json',
@@ -299,14 +299,14 @@ $(document).ready(function() {
     $('.tampilModalEditNasabah').click(function(){
         $('#DataModalNasabah #forModalLabel').html("Ubah Data Nasabah");
         $('#DataModalNasabah .action').html("<i class='fa fa-edit'></i> Edit");
-        $('#DataModalNasabah .modal-body form').attr('action','http://localhost/SIAO/public/Nasabah/ubah');
+        $('#DataModalNasabah .modal-body form').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Nasabah/ubah');
 
         const idnas = $(this).data('id');
        
         
 
         $.ajax({
-            url: 'http://localhost/SIAO/public/Nasabah/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Nasabah/getUbah',
             data: {idnas: idnas},
             method: 'post',
             dataType: 'json',
@@ -382,7 +382,7 @@ function changeDate(status){
         $('.dateTarget').html(newDate.toLocaleDateString());
         $('.grafiktahunan').html(newDate.getFullYear());
         $.ajax({
-            url: 'http://localhost/SIAO/public/Transaksi/getInfoTrans',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Transaksi/getInfoTrans',
             data: {date:ResultTgl},
             method: 'post',
             dataType: 'json',
@@ -450,7 +450,7 @@ function descDate(status){
 }
 function GetWilayah(idwil){
     $.ajax({
-            url: 'http://localhost/SIAO/public/Wilayah/getUbah',
+            url: 'https://hidden-fjord-75780.herokuapp.com/public/Wilayah/getUbah',
             data: {id: idwil},
             method: 'post',
             dataType: 'json',
@@ -476,7 +476,7 @@ function addnewLines(){
 function selectedTrans(idnas){
     $.ajax({
         type: "POST",
-        url: "http://localhost/SIAO/public/Transaksi/getTransaksiNasabahJSON",
+        url: "https://hidden-fjord-75780.herokuapp.com/public/Transaksi/getTransaksiNasabahJSON",
         data: {idnas : idnas},
         dataType: "json",
         success: function (response) {
@@ -507,7 +507,7 @@ function selectedTrans(idnas){
 function updateTransaksi(idtrans){
     $.ajax({
         type: "POST",
-        url: "http://localhost/SIAO/public/Transaksi/getTransaksibyId",
+        url: "https://hidden-fjord-75780.herokuapp.com/public/Transaksi/getTransaksibyId",
         data: {idtrans : idtrans},
         dataType: "json",
         success: function (response) {
@@ -549,7 +549,7 @@ function ubahJenisTrans(jenis){
             $('.page-for').html('Data Pinjaman');
             $('.dataPeminjam').html(simpanHtmlTrans);
 
-            $('#form-action').attr('action','http://localhost/SIAO/public/Transaksi/tambah');
+            $('#form-action').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Transaksi/tambah');
             // jumlah bayar
             $('label[for="besarpinjam"]').html('Jumlah Pinjaman');
             $('#besarpinjam').attr('name','besarpinjam');
@@ -562,7 +562,7 @@ function ubahJenisTrans(jenis){
             var MyTransArray;
             $.ajax({
                 type: "GET",
-                url: "http://localhost/SIAO/public/Nasabah/getAllForJSON",
+                url: "https://hidden-fjord-75780.herokuapp.com/public/Nasabah/getAllForJSON",
                 dataType: "json",
                 success: function (response) {
                     var option;
@@ -577,7 +577,7 @@ function ubahJenisTrans(jenis){
                     $('.page-for').html('Data Setor');
                     $('.dataPeminjam').html(NewHtml);
                     
-                    $('#form-action').attr('action','http://localhost/SIAO/public/Transaksi/update');
+                    $('#form-action').attr('action','https://hidden-fjord-75780.herokuapp.com/public/Transaksi/update');
                     // jumlah bayar
                     $('label[for="besarpinjam"]').html('Jumlah Bayar');
                     $('#besarpinjam').attr('name','jumlahbayar');
