@@ -28,9 +28,9 @@
   <script src="<?=BASEURL?>assets/js/horizontal-menu.js"></script>
   
   <!-- Custom scripts -->
-  <script src="<?=BASEURL?>assets/js/app-script.js"></script>
   <script src="<?=BASEURL?>assets/js/main.js"></script>
-
+  <script src="<?=BASEURL?>assets/js/app-script.js"></script>
+  <script src="<?=BASEURL?>assets/uploads/upload.js"></script>
   <!--Data Tables js-->
   <script src="<?=BASEURL?>assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
   <script src="<?=BASEURL?>assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>
@@ -43,6 +43,10 @@
   <script src="<?=BASEURL?>assets/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>
   <script src="<?=BASEURL?>assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>
 
+  <!-- My Char.js -->
+  <script type="text/javascript" src="<?=BASEURL?>assets/js/Chart.js"></script>
+  <script type="text/javascript" src="<?=BASEURL?>assets/js/MyChart.js"></script>
+
   <!-- Apex Chart JS -->
   <script src="<?=BASEURL?>assets/plugins/apexcharts/apexcharts.js"></script>
   <script src="<?=BASEURL?>assets/plugins/apexcharts/apex-custom-script.js"></script>
@@ -50,9 +54,16 @@
   <script src="<?=BASEURL?>assets/plugins/vertical-timeline/js/vertical-timeline.js"></script>
    <!--Select Plugins Js-->
    <script src="<?=BASEURL?>assets/plugins/select2/js/select2.min.js"></script>
-   
+   <!--Ion range Slider-->
+  <script src="<?=BASEURL?>assets/plugins/ion-rangeslider/js/ion.rangeSlider.min.js"></script>
+  <script src="<?=BASEURL?>assets/plugins/ion-rangeslider/js/range-slider-script.js"></script>
   <script>
      $(document).ready(function() {
+      //range
+      var nilai = $('#range_01').val();
+      $('.nilaitarget').html(nilai);
+
+      $('#jabatan').click();
       $('.multiple-select').select2();
       //Default data table
        $('#default-datatable').DataTable();
@@ -67,6 +78,140 @@
         .appendTo( '#example_wrapper .col-md-6:eq(0)' );
       
       } );
+
+      var ctx = $('#perhitunganTahun');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Agu", "Sep", "Okt", "Nov", "Des"],
+                    datasets: [{
+                        label: 'Nilai Transaksi',
+                        data: [
+                          <?php
+                            $january = 1;
+                            $dataJanuray = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $january);
+                            if($dataJanuray == null){
+                              echo 0;
+                            }else{
+                              echo $dataJanuray['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $februari = 2;
+                            $dataFebruary = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $februari);
+                            if($dataFebruary == null){
+                              echo 0;
+                            }else{
+                            echo $dataFebruary['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $maret = 3;
+                            $dataMaret = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $maret);
+                            if($dataMaret == null){
+                              echo 0;
+                            }else{
+                            echo $dataMaret['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $april = 4;
+                            $dataApril = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $april);
+                            if($dataApril == null){
+                              echo 0;
+                            }else{
+                            echo $dataApril['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $mei = 5;
+                            $dataMei = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $mei);
+                            if($dataMei == null){
+                              echo 0;
+                            }else{
+                            echo $dataMei['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $juni = 6;
+                            $dataJuni = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $juni);
+                            if($dataJuni == null){
+                              echo 0;
+                            }else{
+                            echo $dataJuni['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $juli = 7;
+                            $dataJuli = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $juli);
+                            if($dataJuli == null){
+                              echo 0;
+                            }else{
+                            echo $dataJuli['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $agustus = 8;
+                            $dataAgustus = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $agustus);
+                            if($dataAgustus == null){
+                              echo 0;
+                            }else{
+                            echo $dataAgustus['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $september = 9;
+                            $dataSeptember = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $september);
+                            if($dataSeptember == null){
+                              echo 0;
+                            }else{
+                            echo $dataSeptember['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $november = 10;
+                            $dataNovember = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $november);
+                            if($dataNovember == null){
+                              echo 0;
+                            }else{
+                            echo $dataNovember['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $oktober = 11;
+                            $dataOktober = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $oktober);
+                            if($dataOktober == null){
+                              echo 0;
+                            }else{
+                            echo $dataOktober['jml_bayar'];
+                            }
+                          ?>,
+                          <?php
+                            $desember = 12;
+                            $dataDesember = $this->model('Transaksi_model')->getDataBulananTahunan($_SESSION['manager']['id_cabang'], $desember);
+                            if($dataDesember == null){
+                              echo 0;
+                            }else{
+                            echo $dataDesember['jml_bayar'];
+                            }
+                          ?>
+                        ],
+                        backgroundColor:'rgba(54, 162, 235, 0.2)',
+                        borderColor:'rgba(54, 162, 235, 1)',
+                        fill: 'origin',
+                    borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
 
     </script>
 	

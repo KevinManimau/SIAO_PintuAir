@@ -12,6 +12,16 @@ class User_model {
         $this->db->query('SELECT * FROM '.$this->table);
         return $this->db->resultSet();
     }
+    public function getAllUserElseManager()
+    {
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE id_role != 2');
+        return $this->db->resultSet();
+    }
+    public function getUserbyId($id){
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE id_user=:id');
+        $this->db->bind('id', $id);
+        return $this->db->single();
+    }
     public function getUserbyUsername($data){
         $this->db->query('SELECT * FROM '.$this->table.' WHERE username=:uname');
         $this->db->bind('uname', $data['username']);
@@ -54,11 +64,56 @@ class User_model {
         }
         
     }
+    public function tambahDataUsers($data)
+    {
+        $this->db->query('SELECT * FROM '.$this->table.' WHERE username=:uname');
+        $this->db->bind('uname',$data['username']);
+        $user = $this->db->single();
+        if($user > 0){
+            return 0;
+        }else{    
+            $query = "INSERT INTO ". $this->table ." (username,password,id_role) VALUES(:user, :pass, :role)";
+            $this->db->query($query);
+            $this->db->bind('user',$data['username']);
+            $this->db->bind('pass', $data['password']);
+            $this->db->bind('role', 3);
+            $this->db->execute();
+
+            return $this->db->rowCount();
+        }
+        
+    }
     public function hapusDatabyID($id){
         $this->db->query('DELETE FROM '. $this->table .' WHERE id_user=:id');
         $this->db->bind('id',$id);
 
         $this->db->execute();
         return $this->db->rowCount();
+    }
+    public function ubahDataUser($data, $iduser){
+        // $this->db->query('SELECT * FROM '.$this->table.' WHERE id_manager=:mgrid');
+        // $this->db->bind('mgrid',$iduser);
+        // $manager = $this->db->single();
+            $query = "UPDATE ". $this->table ." SET username=:uname,password=:pass WHERE id_user=:iduser";
+            $this->db->query($query);
+            $this->db->bind('uname', $data['username']);
+            $this->db->bind('pass', $data['password1']);
+            $this->db->bind('iduser', $iduser);
+
+            $this->db->execute();
+            return $this->db->rowCount();
+    }
+    public function ubahDataUsers($data, $iduser){
+        // $this->db->query('SELECT * FROM '.$this->table.' WHERE id_manager=:mgrid');
+        // $this->db->bind('mgrid',$iduser);
+        // $manager = $this->db->single();
+            $query = "UPDATE ". $this->table ." SET username=:uname,password=:pass WHERE id_user=:iduser";
+            $this->db->query($query);
+            $this->db->bind('uname', $data['username']);
+            $this->db->bind('pass', $data['password']);
+            $this->db->bind('iduser', $iduser);
+
+            $this->db->execute();
+            return $this->db->rowCount();
     }
 }
